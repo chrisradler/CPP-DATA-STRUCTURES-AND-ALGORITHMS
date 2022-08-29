@@ -1,0 +1,85 @@
+/******************************************************************************
+
+Welcome to GDB Online.
+GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
+C#, OCaml, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
+Code, Compile, Run and Debug online from anywhere in world.
+
+*******************************************************************************/
+#include <iostream>
+#include <fstream>
+
+using namespace std;
+int rowCounter(){
+    int rowCount = 0;
+    ifstream fin("Data.txt");
+    while(! fin.eof()){
+        string name;
+        getline(fin, name);
+        rowCount++;
+    }
+    return rowCount;
+}
+int columnCounter(){
+    int colcount = 0;
+    string word;
+    ifstream fin("Data.txt");
+    while(! fin.eof()){
+        fin >>word;
+        if (word == "#"){
+            break;
+        }
+        colcount++;
+    }
+    
+    return colcount;
+}
+void filler(string** value, int rowCount, int colcount){
+    string name;
+    ifstream fin2("Data.txt");
+    for (int x =0;x<rowCount;x++){
+        for (int y=0;y<colcount;y++){
+            
+            fin2>> name;
+            if(name  != "#"){
+                value[x][y] = name;
+            }
+            else{
+                fin2 >>name;
+                value[x][y] = name;
+            }
+        }
+    }
+}
+void display(string** value, int rowCount, int colcount){
+    ifstream fin("Data.txt");
+    for (int x =0;x<rowCount;x++){
+        for (int y=0;y<colcount;y++){
+            cout << value[x][y] << " ";
+        }
+        cout << endl;
+    }
+    
+}
+
+
+
+int main()
+{
+    string** value ;
+    
+    int row = rowCounter();
+    int col = columnCounter();
+     
+    value = new string*[row] ;
+    for(int x =0 ; x <row;x++){
+        
+        value[x] = new string[col];
+    } 
+    filler(value, row, col);
+    display(value, row, col);
+    
+    
+
+    return 0;
+}
