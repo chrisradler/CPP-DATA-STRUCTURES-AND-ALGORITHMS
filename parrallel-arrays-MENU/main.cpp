@@ -53,9 +53,6 @@ void cheapestCar(string model[4], int price[4], int year[4], int quantity[4]){
     }
     cout << cheapest << endl; 
 }
-void priceRange(string model[4], int price[4], int year[4], int quantity[4]){
-     
-}
 void findYear(string model[4], int price[4], int year[4], int quantity[4]){
     int make ; 
     cout << "What year are you looking for? "  << endl;
@@ -142,7 +139,7 @@ int main()
     int sel ;
     do{
         
-        cout << "press \n 1. display available costs \n 2. find a car by model \n 3. find the cheapest car \n 4. find car by price range \n 5. find car by year \n 6. update price of a car \n 7. purchase a car \n 8. add new car in inventory \n 0. exit \n selection >> ";
+        cout << "press \n 1. display available costs \n 2. find a car by model \n 3. find the cheapest car \n 4. find car by year \n 5. update price of a car \n 6. purchase a car \n 7. add new car in inventory \n 0. exit \n selection >> ";
          cin >> sel;
          if(sel ==1){
              displayData(model,price,year,quantity);
@@ -154,18 +151,15 @@ int main()
              cheapestCar(model,price,year,quantity);
          }
          else if (sel == 4){
-             cheapestCar(model,price,year,quantity);
-         }
-         else if (sel == 5){
              findYear(model,price,year,quantity);
          }
-         else if (sel == 6){
+         else if (sel == 5){
              updatePrice(model,price,year,quantity);
          }
-         else if (sel == 7){
+         else if (sel == 6){
              purchaseCar(model,price,year,quantity);
          }
-         else if (sel ==8){
+         else if (sel == 7){
              newInventory(model,price,year,quantity);
          }
          else if(sel ==0){
