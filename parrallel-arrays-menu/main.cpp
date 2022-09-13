@@ -11,8 +11,8 @@ Code, Compile, Run and Debug online from anywhere in world.
 #include <fstream>
 
 /*
-This code will be able to manipulate the car dealership inventory. Look at line
-146 to see all available actions
+This code will be able to manipulate the car dealership inventory. Look at the main
+to see all available actions
 */
 using namespace std;
 void dataInput(string model[4], int price[4], int year[4], int quantity[4]){
